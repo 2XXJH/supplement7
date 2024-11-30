@@ -23,7 +23,7 @@ def test_should_plot_normal_distribution():
     assert np.isclose(np.mean(data), 0, atol=0.5)  
     assert np.isclose(np.std(data), 1, atol=0.5)  
 
-def test_plot_line():
+def test_should_plot_line():
     try:
         plot_functions.plot_line(2, 1, -10, 10)
     except Exception as e:

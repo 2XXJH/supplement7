@@ -26,6 +26,21 @@ def plot_normal_distribution():
     return data
 
 def plot_line(y_intercept, slope, x_min, x_max):
+    """
+    Plots a line defined by a given y-intercept, slope, and x-boundaries.
+    
+    This function generates a line plot based on the equation y = slope * x + y_intercept, where
+    the x-values range from x_min to x_max. The plot will be displayed with labels and a legend.
+    
+    Args:
+        y_intercept (float): The y-intercept of the line.
+        slope (float): The slope of the line.
+        x_min (float): The lower bound of the x-values.
+        x_max (float): The upper bound of the x-values.
+    
+    Example:
+        plot_line(2, 1, -10, 10)
+    """
     x = np.linspace(x_min, x_max, 500)
     y = slope * x + y_intercept
     plt.plot(x, y, label=f"y = {slope}x + {y_intercept}")

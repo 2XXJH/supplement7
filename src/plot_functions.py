@@ -55,6 +55,17 @@ def plot_line(y_intercept, slope, x_min, x_max):
     plt.show()
 
 def live_update_graph():
+    """
+    Generates a live-updating plot of the most recent 10 points sampled from a normal distribution.
+    
+    This function updates a plot every second with a new data point, keeping only the last 10 points
+    on the plot. The x-axis represents the index of the points, and the y-axis represents the values.
+    
+    The plot is updated in real-time, and the x-axis is dynamically adjusted to show the most recent points.
+    
+    Example:
+        live_update_graph()
+    """
     fig, ax = plt.subplots()
     x_data, y_data = [], []
     line, = ax.plot([], [], 'o-', label="Live Points")

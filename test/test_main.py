@@ -9,14 +9,6 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-
-
-
-
-
-
-
-
 def test_should_plot_normal_distribution():
     data = plot_functions.plot_normal_distribution()
     assert len(data) == 200  # Ensure 200 points are generated
@@ -28,3 +20,9 @@ def test_should_plot_line():
         plot_functions.plot_line(2, 1, -10, 10)
     except Exception as e:
         assert False, f"plot_line raised an exception: {e}"
+
+def test_live_update_graph():
+    try:
+        plot_functions.live_update_graph()
+    except Exception as e:
+        assert False, f"live_update_graph raised an exception: {e}"

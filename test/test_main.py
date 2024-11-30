@@ -2,7 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import time
-import plot_functions
+import sys
+sys.path.append(".")
+from src import plot_functions
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
+
+
+
+
+
+
+
 
 def test_should_plot_normal_distribution():
     data = plot_functions.plot_normal_distribution()

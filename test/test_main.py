@@ -21,7 +21,7 @@ def test_should_plot_line():
     except Exception as e:
         assert False, f"plot_line raised an exception: {e}"
 
-def test_live_update_graph():
+def test_should_return_live_update_graph():
     try:
         plot_functions.live_update_graph()
     except Exception as e:

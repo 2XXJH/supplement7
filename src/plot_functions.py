@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation  # <-- Ensure this is imported
+import time
 
 
 def plot_normal_distribution():
@@ -50,4 +52,31 @@ def plot_line(y_intercept, slope, x_min, x_max):
     plt.ylabel("y")
     plt.legend()
     plt.grid(True)
+    plt.show()
+
+def live_update_graph():
+    fig, ax = plt.subplots()
+    x_data, y_data = [], []
+    line, = ax.plot([], [], 'o-', label="Live Points")
+
+    def init():
+        ax.set_xlim(0, 10)
+        ax.set_ylim(-3, 3)
+        ax.set_title("Live Plot of Most Recent 10 Points")
+        ax.set_xlabel("Index")
+        ax.set_ylabel("Value")
+        ax.legend()
+        return line,
+
+    def update(frame):
+        x_data.append(len(x_data))
+        y_data.append(np.random.normal(0, 1))  # Randomly sampled point
+        if len(x_data) > 10:  # Keep only the last 10 points
+            x_data.pop(0)
+            y_data.pop(0)
+        line.set_data(x_data, y_data)
+        ax.set_xlim(min(x_data) - 1, max(x_data) + 1)  # Adjust x-axis
+        return line,
+
+    ani = FuncAnimation(fig, update, init_func=init, interval=1000)
     plt.show()
